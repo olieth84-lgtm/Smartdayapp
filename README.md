@@ -1,16 +1,8 @@
-# flutter_application_1
+# SMARTDAY
+Выполнили: Отанбай Г.М, Рахимбаев А.Е
 
-A new Flutter project.
+Группа: 11-ВТИ-23
 
-## Getting Started
+Главная цель SmartDay — помочь пользователям эффективно планировать свой день, управлять текущими задачами и внедрять полезные привычки.SmartDay решает ряд проблем, с которыми люди сталкиваются в повседневной жизни, испытывая трудности с самоорганизацией.Аудитория приложения сегментирована на четыре основные группы:студенты, фрилансеры и т.д
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Интерфейс: https://surge-smoky-08154194.figma.site
