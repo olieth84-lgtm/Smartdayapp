@@ -254,22 +254,29 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTaskTile(int index) {
+ Widget _buildTaskTile(int index) {
     final task = _tasks[index];
     
     return Card(
       elevation: 0,
-      // Цвет меняется в зависимости от того, выполнена задача или нет
       color: task.isDone 
           ? Theme.of(context).colorScheme.surfaceContainerHighest.withValues(alpha: 0.5) 
           : Theme.of(context).colorScheme.surfaceContainer,
       margin: const EdgeInsets.only(bottom: 12),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
-        onTap: () => _toggleTask(index), // Теперь можно нажать на саму плитку
+        // ИЗМЕНЕНИЕ: Теперь onTap делает навигацию (Navigator.push)
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsScreen(task: task), // Передаем задачу
+            ),
+          );
+        },
         leading: Checkbox(
           value: task.isDone,
-          onChanged: (val) => _toggleTask(index), // Чекбокс работает
+          onChanged: (val) => _toggleTask(index), 
           shape: const CircleBorder(),
         ),
         title: Text(
@@ -277,14 +284,12 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(
             decoration: task.isDone ? TextDecoration.lineThrough : null,
             fontWeight: task.isPriority ? FontWeight.bold : FontWeight.normal,
-            color: task.isDone ? Colors.grey : null, // Текст сереет, если выполнено
+            color: task.isDone ? Colors.grey : null, 
           ),
         ),
         subtitle: Text(task.time),
-        trailing: task.isPriority
-            ? Icon(Icons.flag, color: Theme.of(context).colorScheme.error)
-            : null,
+        // Добавим стрелочку справа, чтобы намекнуть, что можно нажать
+        trailing: const Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey),
       ),
     );
   }
-}
